@@ -11,22 +11,24 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Font Awesome (Menu e Ícones Gerais) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Material Symbols (Estrelas estilo Google Maps) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <title>FitFinder - Encontre sua academia</title>
 
 </head>
 
-
 <body>
 
-
-    <!-- LINK para pular o conteúdo -->
-
-    <a href="#conteudo" class="skip-link">
+    <a
+        href="#conteudo"
+        class="skip-link">
         Pular para o conteúdo principal
     </a>
 
-
-    <!-- Cabeçalho -->
 
     <header>
 
@@ -41,9 +43,6 @@
             </p>
 
         </div>
-
-
-        <!-- Navegação -->
 
         <nav aria-label="Navegação principal">
 
@@ -68,12 +67,7 @@
     </header>
 
 
-    <!-- CONTEÚDO PRINCIPAL -->
-
     <main id="conteudo">
-
-
-        <!-- Apresentação -->
 
         <section>
 
@@ -82,15 +76,11 @@
             </h2>
 
             <p>
-                Encontre academias próximas a você,
-                compare preços, aparelhos, avaliações
-                e muito mais.
+                Encontre academias próximas a você, compare preços, aparelhos, avaliações e muito mais.
             </p>
 
         </section>
 
-
-        <!-- Busca -->
 
         <section>
 
@@ -107,16 +97,18 @@
                 <select
                     id="bairro"
                     name="bairro"
-                    aria-label="Escolha seu bairro"
-                    aria-required="true"
-                    required>
+                    aria-label="Escolha seu bairro">
 
                     <option value="">
-                        Selecione um bairro
+                        Todos os bairros
                     </option>
 
-                    <option value="centro">
-                        Centro
+                    <option value="antares">
+                        Antares
+                    </option>
+
+                    <option value="serraria">
+                        Serraria
                     </option>
 
                     <option value="jatiuca">
@@ -127,27 +119,24 @@
                         Ponta Verde
                     </option>
 
-                    <option value="farol">
-                        Farol
+                    <option value="benedito-bentes">
+                        Benedito Bentes
+                    </option>
+
+                    <option value="cidade-universitaria">
+                        Cidade Universitária
+                    </option>
+
+                    <option value="santa-lucia">
+                        Santa Lúcia
                     </option>
 
                 </select>
-
-
-                <button
-                    type="submit"
-                    aria-label="Buscar academias no bairro selecionado">
-
-                    Buscar academias
-
-                </button>
 
             </form>
 
         </section>
 
-
-        <!-- Academias -->
 
         <section>
 
@@ -155,176 +144,593 @@
                 Academias Próximas
             </h2>
 
-
             <div>
 
-
-                <!-- Academia ALPHA -->
-
+                <!-- 1. ANTARES -->
                 <article>
 
                     <figure>
-
                         <img
-                            src="imagens/academia-alpha.jpg"
-                            alt="Interior da Academia Alpha">
-
+                            src="imagens/N2 Entrada.jpg"
+                            alt="Fachada da Academia N2Fit Antares">
                         <figcaption>
-                            Interior da Academia Alpha.
+                            Academia N2Fit - Antares.
                         </figcaption>
-
                     </figure>
 
-
                     <h3>
-                        Academia Alpha
+                        Academia N2Fit
                     </h3>
 
                     <p>
-                        ⭐ 4.8
+                        <span class="google-star">star</span> 4.6
                     </p>
 
                     <p>
-                        📍 Centro
+                        Antares
                     </p>
 
                     <p>
-                        💰 A partir de R$ 79/mês
+                        A partir de R$ 89,90/mês
                     </p>
 
                     <p>
-                        🏋️ 35 aparelhos
+                        90~110 aparelhos
                     </p>
-
 
                     <a
-                        href="Academias/alpha.html"
-                        aria-label="Ver informações da Academia Alpha">
-
-                        Ver Academia Alpha
-
+                        href="detalhes.html?id=n2-antares"
+                        aria-label="Ver informações da Academia N2Fit">
+                        Ver N2Fit
                     </a>
 
                 </article>
 
 
-                <!-- Academia POWER FIT -->
-
                 <article>
 
                     <figure>
-
                         <img
-                            src="imagens/powerfit.jpg"
-                            alt="Interior da Academia Power Fit">
-
+                            src="imagens/FOCO Antares entrada.jpg"
+                            alt="Fachada da Foco Fitness Antares">
                         <figcaption>
-                            Interior da Academia Power Fit.
+                            Foco Fitness - Antares.
                         </figcaption>
-
                     </figure>
 
-
                     <h3>
-                        Academia Power Fit
+                        Foco Fitness
                     </h3>
 
                     <p>
-                        ⭐ 4.5
+                        <span class="google-star">star</span> 4.7
                     </p>
 
                     <p>
-                        📍 Ponta Verde
+                        Antares
                     </p>
 
                     <p>
-                        💰 A partir de R$ 99/mês
+                        A partir de R$ 89,00/mês
                     </p>
 
                     <p>
-                        🏋️ 38 aparelhos
+                        70~80 aparelhos
                     </p>
-
 
                     <a
-                        href="Academias/power.html"
-                        aria-label="Ver informações da Academia Power Fit">
-
-                        Ver Academia Power Fit
-
+                        href="detalhes.html?id=focos-antares"
+                        aria-label="Ver informações da Foco Fitness">
+                        Ver Foco Fitness
                     </a>
 
                 </article>
 
 
-                <!-- Academia MAX FITNESS -->
-
+                <!-- 2. SERRARIA -->
                 <article>
 
                     <figure>
-
                         <img
-                            src="imagens/max-fitness.jpg"
-                            alt="Interior da Max Fitness">
-
+                            src="imagens/FOCO Serraria Entrada.jpg"
+                            alt="Fachada da Foco Fitness Serraria">
                         <figcaption>
-                            Interior da Max Fitness.
+                            Foco Fitness - Serraria.
                         </figcaption>
-
                     </figure>
 
-
                     <h3>
-                        Max Fitness
+                        Foco Fitness
                     </h3>
 
                     <p>
-                        ⭐ 4.6
+                        <span class="google-star">star</span> 4.6
                     </p>
 
                     <p>
-                        📍 Ponta Verde
+                        Serraria
                     </p>
 
                     <p>
-                        💰 A partir de R$ 99/mês
+                        A partir de R$ 89,90/mês
                     </p>
 
                     <p>
-                        🏋️ 38 aparelhos
+                        65~75 aparelhos
                     </p>
-
 
                     <a
-                        href="Academias/max.html"
-                        aria-label="Ver informações da Max Fitness">
-
-                        Ver Academia Max Fitness
-
+                        href="detalhes.html?id=focos-serraria"
+                        aria-label="Ver informações da Foco Fitness Serraria">
+                        Ver Foco Fitness
                     </a>
 
                 </article>
 
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/RED entrada.jpg"
+                            alt="Fachada da RED Fitness Serraria">
+                        <figcaption>
+                            RED Fitness - Serraria.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        RED Fitness
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.9
+                    </p>
+
+                    <p>
+                        Serraria
+                    </p>
+
+                    <p>
+                        A partir de R$ 119,90/mês
+                    </p>
+
+                    <p>
+                        120 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=red-serraria"
+                        aria-label="Ver informações da RED Fitness">
+                        Ver RED Fitness
+                    </a>
+
+                </article>
+
+
+                <!-- 3. JATIÚCA -->
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/BG Jatiuca entrada.jpg"
+                            alt="Fachada da BG Fitness Jatiúca">
+                        <figcaption>
+                            BG Fitness - Jatiúca.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        BG Fitness
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.5
+                    </p>
+
+                    <p>
+                        Jatiúca
+                    </p>
+
+                    <p>
+                        A partir de R$ 109,90/mês
+                    </p>
+
+                    <p>
+                        90 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=bg-jatiuca"
+                        aria-label="Ver informações da BG Fitness Jatiúca">
+                        Ver BG Fitness
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/Formafit Entrada.jpg"
+                            alt="Fachada da Formafit Club Jatiúca">
+                        <figcaption>
+                            Formafit Club - Jatiúca.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Formafit Club
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 5.0
+                    </p>
+
+                    <p>
+                        Jatiúca
+                    </p>
+
+                    <p>
+                        A partir de R$ 530,00/mês
+                    </p>
+
+                    <p>
+                        130 aparelhos Premium
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=formafit-jatiuca"
+                        aria-label="Ver informações da Formafit Club">
+                        Ver Formafit Club
+                    </a>
+
+                </article>
+
+
+                <!-- 4. PONTA VERDE -->
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/selfit entrada.jpg"
+                            alt="Fachada da Selfit Ponta Verde">
+                        <figcaption>
+                            Selfit - Ponta Verde.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Selfit Academias
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.4
+                    </p>
+
+                    <p>
+                        Ponta Verde
+                    </p>
+
+                    <p>
+                        A partir de R$ 119,90/mês
+                    </p>
+
+                    <p>
+                        110 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=selfit-ponta-verde"
+                        aria-label="Ver informações da Selfit Ponta Verde">
+                        Ver Selfit
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/SMARTFIT ponta verde entrada.jpg"
+                            alt="Fachada da Smart Fit Ponta Verde">
+                        <figcaption>
+                            Smart Fit - Ponta Verde.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Smart Fit
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.3
+                    </p>
+
+                    <p>
+                        Ponta Verde
+                    </p>
+
+                    <p>
+                        A partir de R$ 149,90/mês
+                    </p>
+
+                    <p>
+                        140 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=smartfit-ponta-verde"
+                        aria-label="Ver informações da Smart Fit Ponta Verde">
+                        Ver Smart Fit
+                    </a>
+
+                </article>
+
+
+                <!-- 5. BENEDITO BENTES -->
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/BG Benedito bentes Entrada.jpg"
+                            alt="Fachada da BG Fitness Benedito Bentes">
+                        <figcaption>
+                            BG Fitness - Benedito Bentes.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        BG Fitness
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.7
+                    </p>
+
+                    <p>
+                        Benedito Bentes
+                    </p>
+
+                    <p>
+                        A partir de R$ 79,90/mês
+                    </p>
+
+                    <p>
+                        80 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=bg-benedito-bentes"
+                        aria-label="Ver informações da BG Fitness Benedito Bentes">
+                        Ver BG Fitness
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/DS benedito bentes Entrada.jpg"
+                            alt="Fachada da DS Fit Benedito Bentes">
+                        <figcaption>
+                            DS Fit - Benedito Bentes.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        DS Fit
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.2
+                    </p>
+
+                    <p>
+                        Benedito Bentes
+                    </p>
+
+                    <p>
+                        A partir de R$ 69,90/mês
+                    </p>
+
+                    <p>
+                        85 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=ds-benedito-bentes"
+                        aria-label="Ver informações da DS Fit Benedito Bentes">
+                        Ver DS Fit
+                    </a>
+
+                </article>
+
+
+                <!-- 6. CIDADE UNIVERSITÁRIA -->
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/Gavioes Cidade universitaria Entrada.jpg"
+                            alt="Fachada da Academia Gaviões 24H Cidade Universitária">
+                        <figcaption>
+                            Gaviões 24H - Cidade Universitária.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Academia Gaviões 24H
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.9
+                    </p>
+
+                    <p>
+                        Cidade Universitária
+                    </p>
+
+                    <p>
+                        A partir de R$ 109,90/mês
+                    </p>
+
+                    <p>
+                        150 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=gavioes-cidade-universitaria"
+                        aria-label="Ver informações da Academia Gaviões 24H">
+                        Ver Gaviões 24H
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/Smart cidde universitaria entrada.jpg"
+                            alt="Fachada da Smart Fit Cidade Universitária">
+                        <figcaption>
+                            Smart Fit - Cidade Universitária.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        Smart Fit
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.6
+                    </p>
+
+                    <p>
+                        Cidade Universitária
+                    </p>
+
+                    <p>
+                        A partir de R$ 119,90/mês
+                    </p>
+
+                    <p>
+                        110 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=smartfit-cidade-universitaria"
+                        aria-label="Ver informações da Smart Fit Cidade Universitária">
+                        Ver Smart Fit
+                    </a>
+
+                </article>
+
+
+                <!-- 7. SANTA LÚCIA -->
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/WD Antares entrada.jpg"
+                            alt="Fachada do WD Centro de Treinamento">
+                        <figcaption>
+                            WD Centro de Treinamento - Santa Lúcia.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        WD Centro de Treinamento
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.8
+                    </p>
+
+                    <p>
+                        Santa Lúcia
+                    </p>
+
+                    <p>
+                        A partir de R$ 69,90/mês
+                    </p>
+
+                    <p>
+                        60 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=wd-santa-lucia"
+                        aria-label="Ver informações do WD Centro de Treinamento">
+                        Ver WD CT
+                    </a>
+
+                </article>
+
+
+                <article>
+
+                    <figure>
+                        <img
+                            src="imagens/DS Santa lucia Entrada.jpg"
+                            alt="Fachada da DS Fit Santa Lúcia">
+                        <figcaption>
+                            DS Fit - Santa Lúcia.
+                        </figcaption>
+                    </figure>
+
+                    <h3>
+                        DS Fit
+                    </h3>
+
+                    <p>
+                        <span class="google-star">star</span> 4.5
+                    </p>
+
+                    <p>
+                        Santa Lúcia
+                    </p>
+
+                    <p>
+                        A partir de R$ 79,90/mês
+                    </p>
+
+                    <p>
+                        75 aparelhos
+                    </p>
+
+                    <a
+                        href="detalhes.html?id=ds-santa-lucia"
+                        aria-label="Ver informações da DS Fit Santa Lúcia">
+                        Ver DS Fit
+                    </a>
+
+                </article>
 
             </div>
 
         </section>
 
-
     </main>
 
-
-    <!-- Rodapé -->
 
     <footer>
 
         <p>
-            © 2026 FitFinder -
-            Encontre. Treine. Evolua.
+            &copy; 2026 FitFinder - Encontre. Treine. Evolua.
         </p>
 
     </footer>
 
+
+    <script src="js/main.js"></script>
+
+    <script src="js/user-menu.js"></script>
 
 </body>
 
