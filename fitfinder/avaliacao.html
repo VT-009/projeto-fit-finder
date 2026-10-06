@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <title>FitFinder - Taxa Metabólica Basal (TMB)</title>
+
+</head>
+
+<body>
+
+    <a
+        href="#conteudo"
+        class="skip-link">
+        Pular para o conteúdo principal
+    </a>
+
+
+    <header>
+
+        <div>
+
+            <h1>
+                FitFinder
+            </h1>
+
+            <p>
+                Encontre. Treine. Evolua.
+            </p>
+
+        </div>
+
+        <nav aria-label="Navegação principal">
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Academias
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main id="conteudo">
+
+        <section class="login-container">
+
+            <h2>
+                 Cálculo de TMB
+            </h2>
+
+            <p class="subtitle">
+                Descubra suas calorias diárias e a meta de hidratação ideal.
+            </p>
+
+
+            <!-- Alerta dos 30 dias -->
+            <div
+                id="alerta-30dias"
+                style="display: none; background: #2b1d0c; border: 1px solid #d97706; color: #fbbf24; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 0.95rem;">
+                 <strong>Atenção:</strong> Já se passaram 30 dias desde seu último cálculo!
+            </div>
+
+
+            <!-- FORMULÁRIO TMB -->
+            <form
+                id="form-tmb"
+                class="form-login">
+
+                <!-- Controle de Edição -->
+                <input
+                    type="hidden"
+                    id="tmb-id">
+
+
+                <div class="input-group">
+
+                    <label for="sexo">
+                        Sexo biológico *
+                    </label>
+
+                    <select
+                        id="sexo"
+                        required>
+
+                        <option value="m">
+                            Masculino
+                        </option>
+
+                        <option value="f">
+                            Feminino
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="idade">
+                        Idade (anos) *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="idade"
+                        placeholder="Ex: 22"
+                        min="10"
+                        max="100"
+                        required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="peso">
+                        Peso Atual (kg) *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="peso"
+                        step="0.1"
+                        placeholder="Ex: 75.5"
+                        required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="altura">
+                        Altura (cm) *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="altura"
+                        placeholder="Ex: 175"
+                        required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="nivel-atividade">
+                        Nível de Atividade Física *
+                    </label>
+
+                    <select
+                        id="nivel-atividade"
+                        required>
+
+                        <option value="1.2">
+                            Sedentário (pouco ou nenhum)
+                        </option>
+
+                        <option value="1.375">
+                            Levemente ativo (1 a 3 dias/sem)
+                        </option>
+
+                        <option value="1.55">
+                            Moderadamente ativo (3 a 5 dias/sem)
+                        </option>
+
+                        <option value="1.725">
+                            Muito ativo (6 a 7 dias/sem)
+                        </option>
+
+                        <option value="1.9">
+                            Extremamente ativo (treino pesado)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="anotacao">
+                        Anotações / Comentários da Avaliação
+                    </label>
+
+                    <textarea
+                        id="anotacao"
+                        rows="3"
+                        placeholder="Ex: Perdi 2kg este mês..."
+                        style="width: 100%; background: #080808; border: 1px solid var(--borda-clara); color: #fff; padding: 10px; border-radius: 6px; resize: vertical;">
+                    </textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="btn-salvar-tmb">
+                    Calcular e Salvar
+                </button>
+
+                <button
+                    type="button"
+                    id="btn-cancelar-tmb"
+                    style="display: none; background-color: #444444; border-color: #555555; margin-top: 10px;">
+                    Cancelar Edição
+                </button>
+
+            </form>
+
+
+            <!-- RESULTADO ATUAL -->
+            <div
+                id="resultado-tmb"
+                style="margin-top: 25px; padding: 18px; background: #111; border-radius: 8px; display: none; text-align: center; border: 1px solid var(--borda);">
+
+                <h3 style="margin-bottom: 10px;">
+                    Gasto Calórico Diário
+                </h3>
+
+                <p
+                    id="valor-tmb"
+                    style="font-size: 2.2rem; font-weight: bold; color: var(--azul); margin: 5px 0;">
+                    0 kcal
+                </p>
+
+                <p
+                    id="data-ultima"
+                    style="color: var(--texto-secundario); font-size: 0.85rem; margin-top: 5px;">
+                    ---
+                </p>
+
+            </div>
+
+
+            <!-- HISTÓRICO DE ANOTAÇÕES -->
+            <div style="margin-top: 35px; padding-top: 25px; border-top: 1px solid var(--borda);">
+
+                <h3>
+                     Histórico de Avaliações
+                </h3>
+
+                <ul
+                    id="lista-historico"
+                    style="list-style: none; padding: 0; margin-top: 15px;">
+                    <!-- Preenchido dinamicamente pelo JS -->
+                </ul>
+
+            </div>
+
+
+            <div class="register-area">
+
+                <a href="index.html">
+                    ← Voltar para a página inicial
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            &copy; 2026 FitFinder - Encontre. Treine. Evolua.
+        </p>
+
+    </footer>
+
+
+    <script src="js/avaliacao.js"></script>
+
+    <script src="js/user-menu.js"></script>
+
+</body>
+
+</html>
