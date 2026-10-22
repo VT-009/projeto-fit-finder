@@ -3,10 +3,7 @@
 
 <head>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="css/style.css">
@@ -23,713 +20,526 @@
 
 <body>
 
-    <a
-        href="#conteudo"
-        class="skip-link">
+    <a href="#conteudo" class="skip-link">
         Pular para o conteúdo principal
     </a>
 
-
     <header>
-
         <div>
-
-            <h1>
-                FitFinder
-            </h1>
-
-            <p>
-                Encontre. Treine. Evolua.
-            </p>
-
+            <h1>FitFinder</h1>
+            <p>Encontre. Treine. Evolua.</p>
         </div>
 
         <nav aria-label="Navegação principal">
-
             <ul>
-
-                <li>
-                    <a href="index.html">
-                        Academias
-                    </a>
-                </li>
-
-                <li>
-                    <a href="login.html">
-                        Entrar
-                    </a>
-                </li>
-
+                <li><a href="index.html">Academias</a></li>
+                <li><a href="login.html">Entrar</a></li>
             </ul>
-
         </nav>
-
     </header>
-
 
     <main id="conteudo">
 
-        <section>
+        <!-- BANNER PARA VISITANTES NÃO LOGADOS -->
+        <div id="banner-login-visitante" style="display: none; background: rgba(2, 132, 199, 0.12); border: 1px solid #0284c7; border-radius: 8px; padding: 16px 20px; margin-bottom: 25px; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-circle-info" style="color: #38bdf8; font-size: 1.4rem;"></i>
+                <p style="margin: 0; color: #e2e8f0; font-size: 0.95rem;">
+                    Se quiser uma experiência completa, <strong>faça login em nossa página</strong> para publicar avaliações e ver detalhes exclusivos!
+                </p>
+            </div>
+            <a href="login.html" class="btn-primary" style="background: #0284c7; color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-block; white-space: nowrap;">
+                Fazer Login
+            </a>
+        </div>
 
-            <h2>
-                Encontre a academia ideal para você!
-            </h2>
-
-            <p>
+        <!-- HERO BANNER -->
+        <section class="card-secao" style="background: #0d1117; border: 1px solid #1f293d; border-radius: 12px; padding: 30px; margin-bottom: 30px;">
+            <h2>Encontre a academia ideal para você!</h2>
+            <p style="color: #94a3b8; margin-top: 10px;">
                 Encontre academias próximas a você, compare preços, aparelhos, avaliações e muito mais.
             </p>
-
         </section>
 
+        <!-- FILTRO DE BAIRRO (QUADRADO COM CONTRASTE RESTAURADO) -->
+        <section class="card-secao" style="background: #0d1117; border: 1px solid #1f293d; border-radius: 12px; padding: 30px; margin-bottom: 30px;">
+            <h2>Encontre uma academia</h2>
 
-        <section>
-
-            <h2>
-                Encontre uma academia
-            </h2>
-
-            <form>
-
-                <label for="bairro">
+            <form style="margin-top: 15px;">
+                <label for="bairro" style="display: block; margin-bottom: 8px; font-weight: 600; color: #e2e8f0;">
                     Escolha seu bairro:
                 </label>
 
-                <select
-                    id="bairro"
-                    name="bairro"
-                    aria-label="Escolha seu bairro">
-
+                <select id="bairro" name="bairro" aria-label="Escolha seu bairro" style="width: 100%; padding: 12px 16px; background: #05080e; border: 1px solid #1f293d; border-radius: 6px; color: #fff; font-size: 0.95rem;">
                     <option value="">
                         Todos os bairros
                     </option>
-
                     <option value="antares">
                         Antares
                     </option>
-
                     <option value="serraria">
                         Serraria
                     </option>
-
                     <option value="jatiuca">
                         Jatiúca
                     </option>
-
                     <option value="ponta-verde">
                         Ponta Verde
                     </option>
-
                     <option value="benedito-bentes">
                         Benedito Bentes
                     </option>
-
                     <option value="cidade-universitaria">
                         Cidade Universitária
                     </option>
-
                     <option value="santa-lucia">
                         Santa Lúcia
                     </option>
-
                 </select>
-
             </form>
-
         </section>
 
-
+        <!-- LISTA DE ACADEMIAS -->
         <section>
-
-            <h2>
-                Academias Próximas
-            </h2>
+            <h2 style="margin-bottom: 20px;">Academias Próximas</h2>
 
             <div>
 
                 <!-- 1. ANTARES -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/N2 Entrada.jpg"
-                            alt="Fachada da Academia N2Fit Antares">
+                        <img src="imagens/N2 Entrada.jpg" alt="Fachada da Academia N2Fit Antares">
                         <figcaption>
                             Academia N2Fit - Antares.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Academia N2Fit
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.6
                     </p>
-
                     <p>
                         Antares
                     </p>
-
                     <p>
                         A partir de R$ 89,90/mês
                     </p>
-
                     <p>
                         90~110 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=n2-antares"
-                        aria-label="Ver informações da Academia N2Fit">
+                    <a href="detalhes.html?id=n2-antares" aria-label="Ver informações da Academia N2Fit">
                         Ver N2Fit
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/FOCO Antares entrada.jpg"
-                            alt="Fachada da Foco Fitness Antares">
+                        <img src="imagens/FOCO Antares entrada.jpg" alt="Fachada da Foco Fitness Antares">
                         <figcaption>
                             Foco Fitness - Antares.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Foco Fitness
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.7
                     </p>
-
                     <p>
                         Antares
                     </p>
-
                     <p>
                         A partir de R$ 89,00/mês
                     </p>
-
                     <p>
                         70~80 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=focos-antares"
-                        aria-label="Ver informações da Foco Fitness">
+                    <a href="detalhes.html?id=focos-antares" aria-label="Ver informações da Foco Fitness">
                         Ver Foco Fitness
                     </a>
-
                 </article>
-
 
                 <!-- 2. SERRARIA -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/FOCO Serraria Entrada.jpg"
-                            alt="Fachada da Foco Fitness Serraria">
+                        <img src="imagens/FOCO Serraria Entrada.jpg" alt="Fachada da Foco Fitness Serraria">
                         <figcaption>
                             Foco Fitness - Serraria.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Foco Fitness
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.6
                     </p>
-
                     <p>
                         Serraria
                     </p>
-
                     <p>
                         A partir de R$ 89,90/mês
                     </p>
-
                     <p>
                         65~75 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=focos-serraria"
-                        aria-label="Ver informações da Foco Fitness Serraria">
+                    <a href="detalhes.html?id=focos-serraria" aria-label="Ver informações da Foco Fitness Serraria">
                         Ver Foco Fitness
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/RED entrada.jpg"
-                            alt="Fachada da RED Fitness Serraria">
+                        <img src="imagens/RED entrada.jpg" alt="Fachada da RED Fitness Serraria">
                         <figcaption>
                             RED Fitness - Serraria.
                         </figcaption>
                     </figure>
-
                     <h3>
                         RED Fitness
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.9
                     </p>
-
                     <p>
                         Serraria
                     </p>
-
                     <p>
                         A partir de R$ 119,90/mês
                     </p>
-
                     <p>
                         120 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=red-serraria"
-                        aria-label="Ver informações da RED Fitness">
+                    <a href="detalhes.html?id=red-serraria" aria-label="Ver informações da RED Fitness">
                         Ver RED Fitness
                     </a>
-
                 </article>
-
 
                 <!-- 3. JATIÚCA -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/BG Jatiuca entrada.jpg"
-                            alt="Fachada da BG Fitness Jatiúca">
+                        <img src="imagens/BG Jatiuca entrada.jpg" alt="Fachada da BG Fitness Jatiúca">
                         <figcaption>
                             BG Fitness - Jatiúca.
                         </figcaption>
                     </figure>
-
                     <h3>
                         BG Fitness
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.5
                     </p>
-
                     <p>
                         Jatiúca
                     </p>
-
                     <p>
                         A partir de R$ 109,90/mês
                     </p>
-
                     <p>
                         90 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=bg-jatiuca"
-                        aria-label="Ver informações da BG Fitness Jatiúca">
+                    <a href="detalhes.html?id=bg-jatiuca" aria-label="Ver informações da BG Fitness Jatiúca">
                         Ver BG Fitness
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/Formafit Entrada.jpg"
-                            alt="Fachada da Formafit Club Jatiúca">
+                        <img src="imagens/Formafit Entrada.jpg" alt="Fachada da Formafit Club Jatiúca">
                         <figcaption>
                             Formafit Club - Jatiúca.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Formafit Club
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 5.0
                     </p>
-
                     <p>
                         Jatiúca
                     </p>
-
                     <p>
                         A partir de R$ 530,00/mês
                     </p>
-
                     <p>
                         130 aparelhos Premium
                     </p>
-
-                    <a
-                        href="detalhes.html?id=formafit-jatiuca"
-                        aria-label="Ver informações da Formafit Club">
+                    <a href="detalhes.html?id=formafit-jatiuca" aria-label="Ver informações da Formafit Club">
                         Ver Formafit Club
                     </a>
-
                 </article>
-
 
                 <!-- 4. PONTA VERDE -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/selfit entrada.jpg"
-                            alt="Fachada da Selfit Ponta Verde">
+                        <img src="imagens/selfit entrada.jpg" alt="Fachada da Selfit Ponta Verde">
                         <figcaption>
                             Selfit - Ponta Verde.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Selfit Academias
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.4
                     </p>
-
                     <p>
                         Ponta Verde
                     </p>
-
                     <p>
                         A partir de R$ 119,90/mês
                     </p>
-
                     <p>
                         110 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=selfit-ponta-verde"
-                        aria-label="Ver informações da Selfit Ponta Verde">
+                    <a href="detalhes.html?id=selfit-ponta-verde" aria-label="Ver informações da Selfit Ponta Verde">
                         Ver Selfit
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/SMARTFIT ponta verde entrada.jpg"
-                            alt="Fachada da Smart Fit Ponta Verde">
+                        <img src="imagens/SMARTFIT ponta verde entrada.jpg" alt="Fachada da Smart Fit Ponta Verde">
                         <figcaption>
                             Smart Fit - Ponta Verde.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Smart Fit
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.3
                     </p>
-
                     <p>
                         Ponta Verde
                     </p>
-
                     <p>
                         A partir de R$ 149,90/mês
                     </p>
-
                     <p>
                         140 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=smartfit-ponta-verde"
-                        aria-label="Ver informações da Smart Fit Ponta Verde">
+                    <a href="detalhes.html?id=smartfit-ponta-verde" aria-label="Ver informações da Smart Fit Ponta Verde">
                         Ver Smart Fit
                     </a>
-
                 </article>
-
 
                 <!-- 5. BENEDITO BENTES -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/BG Benedito bentes Entrada.jpg"
-                            alt="Fachada da BG Fitness Benedito Bentes">
+                        <img src="imagens/BG Benedito bentes Entrada.jpg" alt="Fachada da BG Fitness Benedito Bentes">
                         <figcaption>
                             BG Fitness - Benedito Bentes.
                         </figcaption>
                     </figure>
-
                     <h3>
                         BG Fitness
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.7
                     </p>
-
                     <p>
                         Benedito Bentes
                     </p>
-
                     <p>
                         A partir de R$ 79,90/mês
                     </p>
-
                     <p>
                         80 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=bg-benedito-bentes"
-                        aria-label="Ver informações da BG Fitness Benedito Bentes">
+                    <a href="detalhes.html?id=bg-benedito-bentes" aria-label="Ver informações da BG Fitness Benedito Bentes">
                         Ver BG Fitness
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/DS benedito bentes Entrada.jpg"
-                            alt="Fachada da DS Fit Benedito Bentes">
+                        <img src="imagens/DS benedito bentes Entrada.jpg" alt="Fachada da DS Fit Benedito Bentes">
                         <figcaption>
                             DS Fit - Benedito Bentes.
                         </figcaption>
                     </figure>
-
                     <h3>
                         DS Fit
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.2
                     </p>
-
                     <p>
                         Benedito Bentes
                     </p>
-
                     <p>
                         A partir de R$ 69,90/mês
                     </p>
-
                     <p>
                         85 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=ds-benedito-bentes"
-                        aria-label="Ver informações da DS Fit Benedito Bentes">
+                    <a href="detalhes.html?id=ds-benedito-bentes" aria-label="Ver informações da DS Fit Benedito Bentes">
                         Ver DS Fit
                     </a>
-
                 </article>
-
 
                 <!-- 6. CIDADE UNIVERSITÁRIA -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/Gavioes Cidade universitaria Entrada.jpg"
-                            alt="Fachada da Academia Gaviões 24H Cidade Universitária">
+                        <img src="imagens/Gavioes Cidade universitaria Entrada.jpg" alt="Fachada da Academia Gaviões 24H Cidade Universitária">
                         <figcaption>
                             Gaviões 24H - Cidade Universitária.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Academia Gaviões 24H
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.9
                     </p>
-
                     <p>
                         Cidade Universitária
                     </p>
-
                     <p>
                         A partir de R$ 109,90/mês
                     </p>
-
                     <p>
                         150 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=gavioes-cidade-universitaria"
-                        aria-label="Ver informações da Academia Gaviões 24H">
+                    <a href="detalhes.html?id=gavioes-cidade-universitaria" aria-label="Ver informações da Academia Gaviões 24H">
                         Ver Gaviões 24H
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/Smart cidde universitaria entrada.jpg"
-                            alt="Fachada da Smart Fit Cidade Universitária">
+                        <img src="imagens/Smart cidde universitaria entrada.jpg" alt="Fachada da Smart Fit Cidade Universitária">
                         <figcaption>
                             Smart Fit - Cidade Universitária.
                         </figcaption>
                     </figure>
-
                     <h3>
                         Smart Fit
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.6
                     </p>
-
                     <p>
                         Cidade Universitária
                     </p>
-
                     <p>
                         A partir de R$ 119,90/mês
                     </p>
-
                     <p>
                         110 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=smartfit-cidade-universitaria"
-                        aria-label="Ver informações da Smart Fit Cidade Universitária">
+                    <a href="detalhes.html?id=smartfit-cidade-universitaria" aria-label="Ver informações da Smart Fit Cidade Universitária">
                         Ver Smart Fit
                     </a>
-
                 </article>
-
 
                 <!-- 7. SANTA LÚCIA -->
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/WD Antares entrada.jpg"
-                            alt="Fachada do WD Centro de Treinamento">
+                        <img src="imagens/WD Antares entrada.jpg" alt="Fachada do WD Centro de Treinamento">
                         <figcaption>
                             WD Centro de Treinamento - Santa Lúcia.
                         </figcaption>
                     </figure>
-
                     <h3>
                         WD Centro de Treinamento
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.8
                     </p>
-
                     <p>
                         Santa Lúcia
                     </p>
-
                     <p>
                         A partir de R$ 69,90/mês
                     </p>
-
                     <p>
                         60 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=wd-santa-lucia"
-                        aria-label="Ver informações do WD Centro de Treinamento">
+                    <a href="detalhes.html?id=wd-santa-lucia" aria-label="Ver informações do WD Centro de Treinamento">
                         Ver WD CT
                     </a>
-
                 </article>
 
-
                 <article>
-
                     <figure>
-                        <img
-                            src="imagens/DS Santa lucia Entrada.jpg"
-                            alt="Fachada da DS Fit Santa Lúcia">
+                        <img src="imagens/DS Santa lucia Entrada.jpg" alt="Fachada da DS Fit Santa Lúcia">
                         <figcaption>
                             DS Fit - Santa Lúcia.
                         </figcaption>
                     </figure>
-
                     <h3>
                         DS Fit
                     </h3>
-
                     <p>
                         <span class="google-star">star</span> 4.5
                     </p>
-
                     <p>
                         Santa Lúcia
                     </p>
-
                     <p>
                         A partir de R$ 79,90/mês
                     </p>
-
                     <p>
                         75 aparelhos
                     </p>
-
-                    <a
-                        href="detalhes.html?id=ds-santa-lucia"
-                        aria-label="Ver informações da DS Fit Santa Lúcia">
+                    <a href="detalhes.html?id=ds-santa-lucia" aria-label="Ver informações da DS Fit Santa Lúcia">
                         Ver DS Fit
                     </a>
-
                 </article>
 
             </div>
+        </section>
 
+        <!-- AVALIAÇÃO DA PLATAFORMA FITFINDER -->
+        <section style="margin-top: 50px;">
+            <div style="background: #0d1117; padding: 30px; border-radius: 12px; border: 1px solid #1f293d;">
+                <h3 style="color: #38bdf8; margin-bottom: 6px; font-size: 1.15rem;">
+                    <i class="fa-solid fa-laptop-code"></i> O que achou do nosso site e das suas funções?
+                </h3>
+                
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 20px;">
+                    Avalie a facilidade de navegação, busca por bairros, design e utilidade do sistema para a comunidade de Maceió.
+                </p>
+
+                <form id="form-feedback-site" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div>
+                        <label style="font-size: 0.85rem; color: #ccc; display: block; margin-bottom: 8px; font-weight: 600;">
+                            Sua Nota para o Site:
+                        </label>
+                        <div id="estrelas-site" style="display: flex; gap: 6px; cursor: pointer;">
+                            <span class="star-btn google-star" data-value="1" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" data-value="2" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" data-value="3" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" data-value="4" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" data-value="5" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <textarea id="texto-feedback-site" rows="3" placeholder="O site foi útil? A busca funcionou bem? Deixe sua sugestão ou opinião..." style="width: 100%; padding: 12px; background: #05080e; border: 1px solid #1f293d; color: #fff; border-radius: 6px; resize: vertical;" required></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" style="padding: 10px 24px; font-size: 0.9rem; font-weight: 600; background: #0284c7; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+                            Publicar Opinião sobre o FitFinder
+                        </button>
+                    </div>
+                </form>
+
+                <div id="lista-feedbacks-site" style="margin-top: 25px;"></div>
+            </div>
         </section>
 
     </main>
 
-
     <footer>
-
-        <p>
-            &copy; 2026 FitFinder - Encontre. Treine. Evolua.
-        </p>
-
+        <p>&copy; 2026 FitFinder - Encontre. Treine. Evolua.</p>
     </footer>
 
-
     <script src="js/main.js"></script>
-
     <script src="js/user-menu.js"></script>
 
 </body>
