@@ -1,8 +1,22 @@
 /* =========================================================
-   FITFINDER - GERENCIADOR E FILTRO DE TREINOS
+   FITFINDER - GERENCIADOR E FILTRO DE TREINOS (ISOLADO POR USUÁRIO)
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Obtém o usuário logado no momento
+    const usuarioLogado = JSON.parse(localStorage.getItem('fitfinder_usuario_logado'));
+
+    // Se não houver ninguém logado, redireciona para o login
+    if (!usuarioLogado) {
+        alert('Você precisa estar logado para acessar seus treinos.');
+        window.location.href = 'login.html';
+        return;
+    }
+
+    // 2. Chave EXCLUSIVA de localStorage para o usuário conectado
+    const idUsuario = usuarioLogado.email || usuarioLogado.nome;
+    const chaveTreinosUsuario = `fitfinder_treinos_lista_${idUsuario}`;
 
     const formTreino = document.getElementById('form-treino');
     const inputId = document.getElementById('treino-id');
@@ -15,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectFiltro = document.getElementById('filtro-categoria');
     const listaUI = document.getElementById('lista-treinos');
 
-    let treinos = JSON.parse(localStorage.getItem('fitfinder_treinos_lista')) || [];
+    // Carrega EXCLUSIVAMENTE os treinos do usuário logado
+    let treinos = JSON.parse(localStorage.getItem(chaveTreinosUsuario)) || [];
 
     // Função para renderizar a lista conforme o filtro ativo
     function renderizarTreinos() {
@@ -68,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             listaUI.appendChild(li);
         });
 
-        localStorage.setItem('fitfinder_treinos_lista', JSON.stringify(treinos));
+        // Grava apenas na chave isolada do usuário
+        localStorage.setItem(chaveTreinosUsuario, JSON.stringify(treinos));
     }
 
     // Salvar ou Atualizar
