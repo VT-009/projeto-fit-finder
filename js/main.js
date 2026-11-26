@@ -165,7 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
             s.style.color = v <= val ? '#e3a008' : '#444';
             s.style.opacity = v <= val ? '1' : '0.5';
             s.style.transform = v <= val ? 'scale(1.1)' : 'scale(1)';
+            s.setAttribute('aria-pressed', String(v === val));
         });
+        const textoNota = document.getElementById('nota-site-valor');
+        if (textoNota) textoNota.textContent = `Nota selecionada: ${val} de 5 estrelas.`;
     }
 
     if (estrelasSite.length > 0) {
@@ -177,6 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
             s.addEventListener('click', () => {
                 notaSite = parseInt(s.getAttribute('data-value'));
                 atualizarEstrelasSite(notaSite);
+            });
+            s.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    s.click();
+                }
             });
         });
     }
@@ -215,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (campoTextoSite) campoTextoSite.value = '';
 
             renderizarFeedbacksSite();
+            mostrarMensagem('Sua avaliação do FitFinder foi publicada com sucesso.', 'sucesso');
         });
     }
 

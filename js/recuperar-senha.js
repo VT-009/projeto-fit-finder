@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
         usuarioEncontrado = usuarios.find(u => u.email === emailDigitado);
 
         if (usuarioEncontrado) {
-            alert(`Código enviado com sucesso para ${emailDigitado}!`);
+            mostrarMensagem(`Código enviado com sucesso para ${emailDigitado}!`);
             formEmail.style.display = 'none';
             formCodigo.style.display = 'block';
         } else {
-            alert('Nenhuma conta encontrada com este e-mail. Verifique se digitou corretamente.');
+            mostrarMensagem('Nenhuma conta encontrada com este e-mail. Verifique se digitou corretamente.');
         }
     });
 
@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const novaSenha = inputNovaSenha.value.trim();
 
         if (codigo !== '123456') {
-            alert('Código de verificação incorreto! Tente usar "123456".');
+            mostrarMensagem('Código de verificação incorreto! Tente usar "123456".');
             return;
         }
 
         if (!novaSenha) {
-            alert('Por favor, digite a nova senha.');
+            mostrarMensagem('Por favor, digite a nova senha.');
             return;
         }
 
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         localStorage.setItem('fitfinder_usuarios', JSON.stringify(usuarios));
 
-        alert('Senha redefinida com sucesso! Você será redirecionado para o login.');
-        window.location.href = 'login.html';
+        mostrarMensagem('Senha redefinida com sucesso! Você será redirecionado para o login.');
+        setTimeout(() => { window.location.href = 'login.html'; }, 1200);
     });
 
 });

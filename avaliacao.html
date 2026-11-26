@@ -9,7 +9,7 @@
 
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -220,6 +220,7 @@
                 <button
                     type="button"
                     id="btn-cancelar-tmb"
+                    class="btn-secondary"
                     style="display: none; background-color: #444444; border-color: #555555; margin-top: 10px;">
                     Cancelar Edição
                 </button>
@@ -230,6 +231,8 @@
             <!-- RESULTADO ATUAL -->
             <div
                 id="resultado-tmb"
+                aria-live="polite"
+                aria-atomic="true"
                 style="margin-top: 25px; padding: 18px; background: #111; border-radius: 8px; display: none; text-align: center; border: 1px solid var(--borda);">
 
                 <h3 style="margin-bottom: 10px;">
@@ -289,6 +292,7 @@
     </footer>
 
 
+    <script src="js/feedback.js"></script>
     <script src="js/avaliacao.js"></script>
 
     <script src="js/user-menu.js"></script>

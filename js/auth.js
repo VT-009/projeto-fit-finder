@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const confirmarSenha = inputConfirmarSenha.value;
 
                 if (senha !== confirmarSenha) {
-                    alert('As senhas não coincidem. Por favor, tente novamente.');
+                    mostrarMensagem('As senhas não coincidem. Por favor, tente novamente.');
                     return;
                 }
 
@@ -30,15 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const usuarioExiste = usuarios.some(u => u.email === email);
 
                 if (usuarioExiste) {
-                    alert('Este e-mail já está cadastrado! Faça login.');
+                    mostrarMensagem('Este e-mail já está cadastrado! Faça login.');
                     return;
                 }
 
                 usuarios.push({ nome, email, senha });
                 localStorage.setItem('fitfinder_usuarios', JSON.stringify(usuarios));
 
-                alert('Cadastro realizado com sucesso! Redirecionando para a página de login...');
-                window.location.href = 'login.html';
+                mostrarMensagem('Cadastro realizado com sucesso! Redirecionando para a página de login...');
+                setTimeout(() => { window.location.href = 'login.html'; }, 1200);
             });
         }
     } 
@@ -58,49 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (usuarioValido) {
                 localStorage.setItem('fitfinder_usuario_logado', JSON.stringify(usuarioValido));
-                alert(`Bem-vindo(a), ${usuarioValido.nome}!`);
-                window.location.href = 'index.html';
+                mostrarMensagem(`Bem-vindo(a), ${usuarioValido.nome}!`);
+                setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             } else {
-                alert('E-mail ou senha incorretos. Verifique seus dados!');
-            }
-        });
-    }
-
-    // 3. RECUPERAÇÃO DE SENHA (Funciona sempre, em qualquer tela)
-    if (linkEsqueci) {
-        linkEsqueci.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const emailDigitado = prompt('Digite o e-mail cadastrado na sua conta para redefinir a senha:');
-
-            if (emailDigitado) {
-                const emailNormalizado = emailDigitado.trim().toLowerCase();
-                const usuarios = JSON.parse(localStorage.getItem('fitfinder_usuarios')) || [];
-                const usuarioEncontrado = usuarios.find(u => u.email === emailNormalizado);
-
-                if (usuarioEncontrado) {
-                    alert(`Um código de recuperação de 6 dígitos foi enviado para o e-mail: ${emailNormalizado}\n\n(Dica do protótipo: O código gerado é 123456)`);
-                    
-                    const codigoDigitado = prompt('Digite o código de 6 dígitos enviado para seu e-mail:');
-
-                    if (codigoDigitado === '123456') {
-                        const novaSenha = prompt('Código verificado com sucesso! Digite a sua NOVA senha:');
-
-                        if (novaSenha && novaSenha.trim() !== '') {
-                            usuarioEncontrado.senha = novaSenha.trim();
-                            localStorage.setItem('fitfinder_usuarios', JSON.stringify(usuarios));
-
-                            alert('Sua senha foi redefinida com sucesso! Faça login com sua nova senha.');
-                        } else {
-                            alert('A nova senha não pode ser vazia.');
-                        }
-                    } else if (codigoDigitado !== null) {
-                        alert('Código incorreto! Processo de redefinição cancelado.');
-                    }
-
-                } else {
-                    alert('Nenhuma conta encontrada com este e-mail. Verifique o endereço digitado.');
-                }
+                mostrarMensagem('E-mail ou senha incorretos. Verifique seus dados!');
             }
         });
     }

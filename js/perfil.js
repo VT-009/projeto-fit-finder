@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioLogado = JSON.parse(localStorage.getItem('fitfinder_usuario_logado'));
 
     if (!usuarioLogado) {
-        alert('Para acessar recursos completos, faça login.');
-        window.location.href = 'login.html';
+        mostrarMensagem('Para acessar recursos completos, faça login.');
+        setTimeout(() => { window.location.href = 'login.html'; }, 900);
         return;
     }
 
@@ -59,11 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (querAlterarSenha) {
             caixaTrocaSenha.style.display = 'block';
-            btnToggleSenha.textContent = '✖ Cancelar Redefinição de Senha';
+            btnToggleSenha.textContent = ' Cancelar Redefinição de Senha';
             btnToggleSenha.style.backgroundColor = '#333333';
         } else {
             caixaTrocaSenha.style.display = 'none';
-            btnToggleSenha.textContent = '🔒 Redefinir Senha';
+            btnToggleSenha.textContent = ' Redefinir Senha';
             btnToggleSenha.style.backgroundColor = '#222222';
             inputSenhaAtual.value = '';
             inputSenhaNova.value = '';
@@ -82,12 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const novaSenhaDigitada = inputSenhaNova.value.trim();
 
             if (!senhaAtualDigitada || !novaSenhaDigitada) {
-                alert('Por favor, preencha a senha atual e a nova senha.');
+                mostrarMensagem('Por favor, preencha a senha atual e a nova senha.');
                 return;
             }
 
             if (senhaAtualDigitada !== usuarioLogado.senha) {
-                alert('A senha atual digitada está incorreta.');
+                mostrarMensagem('A senha atual digitada está incorreta.');
                 inputSenhaAtual.value = '';
                 inputSenhaAtual.focus();
                 return;
@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         localStorage.setItem('fitfinder_usuarios', JSON.stringify(usuariosCadastrados));
 
-        alert('Perfil atualizado com sucesso!');
-        window.location.reload();
+        mostrarMensagem('Perfil atualizado com sucesso!');
+        setTimeout(() => window.location.reload(), 1200);
     });
 
     // 5. EXCLUIR CONTA
@@ -136,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.removeItem(`fitfinder_historico_tmb_${emailKey}`);
                 localStorage.removeItem('fitfinder_usuario_logado');
 
-                alert('Sua conta foi excluída com sucesso.');
-                window.location.href = 'index.html';
+                mostrarMensagem('Sua conta foi excluída com sucesso.');
+                setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             }
         });
     }

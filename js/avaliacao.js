@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioLogado = JSON.parse(localStorage.getItem('fitfinder_usuario_logado'));
 
     if (!usuarioLogado) {
-        alert('Para acessar recursos completos, faça login.');
-        window.location.href = 'login.html';
+        mostrarMensagem('Para acessar recursos completos, faça login.');
+        setTimeout(() => { window.location.href = 'login.html'; }, 900);
         return;
     }
 
@@ -211,19 +211,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const fatorAtividade = parseFloat(selectAtividade ? selectAtividade.value : 1.2);
 
             if (isNaN(peso) || peso <= 0) {
-                alert('Por favor, informe um peso válido.');
+                mostrarMensagem('Por favor, informe um peso válido.');
                 if (inputPeso) inputPeso.focus();
                 return;
             }
 
             if (isNaN(altura) || altura <= 0) {
-                alert('Por favor, informe uma altura válida em centímetros.');
+                mostrarMensagem('Por favor, informe uma altura válida em centímetros.');
                 if (inputAltura) inputAltura.focus();
                 return;
             }
 
             if (isNaN(idade) || idade <= 0) {
-                alert('Por favor, informe uma idade válida.');
+                mostrarMensagem('Por favor, informe uma idade válida.');
                 if (inputIdade) inputIdade.focus();
                 return;
             }
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(keyHistorico, JSON.stringify(historico));
             localStorage.setItem(keyMetaAgua, metaAguaRecomendada);
 
-            alert(`[ ok ] Avaliação calculada com sucesso!\n\nGasto Calórico Estimado: ${gastoTotal} kcal/dia\nMeta Diária de Água Atualizada: ${metaAguaRecomendada} mL/dia`);
+            mostrarMensagem(`[ ok ] Avaliação calculada com sucesso!\n\nGasto Calórico Estimado: ${gastoTotal} kcal/dia\nMeta Diária de Água Atualizada: ${metaAguaRecomendada} mL/dia`);
 
             formTMB.reset();
             carregarHistorico();

@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }).join('')
             : `<p style="color: var(--texto-secundario); font-size: 0.95rem; font-style: italic; padding: 10px 0;">Ainda não há avaliações para esta academia. Seja o primeiro a publicar!</p>`;
 
+        container.setAttribute('aria-busy', 'false');
         container.innerHTML = `
             <div class="detalhes-header">
                 <h2>${item.nome}</h2>
@@ -152,15 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div>
                             <label style="font-size: 0.9rem; color: #ccc; display: block; margin-bottom: 8px; font-weight: 600;">Sua Nota:</label>
                             <div id="estrelas-seletor" style="display: flex; gap: 6px; cursor: pointer;">
-                                <span class="star-btn google-star" data-value="1" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                                <span class="star-btn google-star" data-value="2" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                                <span class="star-btn google-star" data-value="3" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                                <span class="star-btn google-star" data-value="4" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                                <span class="star-btn google-star" data-value="5" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                                <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 1 de 5 estrelas" data-value="1" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                                <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 2 de 5 estrelas" data-value="2" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                                <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 3 de 5 estrelas" data-value="3" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                                <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 4 de 5 estrelas" data-value="4" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                                <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 5 de 5 estrelas" data-value="5" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
                             </div>
+                            <p id="nota-academia-valor" aria-live="polite">Nota selecionada: 5 de 5 estrelas.</p>
                         </div>
 
                         <div>
+                            <label for="texto-comentario">Seu comentário:</label>
                             <textarea id="texto-comentario" rows="5" placeholder="Escreva aqui detalhadamente sobre a estrutura, equipamentos, atendimento..." style="width: 100%; padding: 14px; background: #080808; border: 1px solid var(--borda); color: #fff; border-radius: 6px; resize: vertical;" required></textarea>
                         </div>
 
@@ -191,7 +194,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 s.style.color = v <= val ? '#e3a008' : '#444';
                 s.style.opacity = v <= val ? '1' : '0.5';
                 s.style.transform = v <= val ? 'scale(1.1)' : 'scale(1)';
+                s.setAttribute('aria-pressed', String(v === val));
             });
+            const textoNota = document.getElementById('nota-academia-valor');
+            if (textoNota) textoNota.textContent = `Nota selecionada: ${val} de 5 estrelas.`;
         }
 
         atualizarEstrelas(notaAcademia);
@@ -202,6 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
             s.addEventListener('click', () => {
                 notaAcademia = parseInt(s.getAttribute('data-value'));
                 atualizarEstrelas(notaAcademia);
+            });
+            s.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    s.click();
+                }
             });
         });
 
@@ -253,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 localStorage.setItem(keyComentariosAcademia, JSON.stringify(comentariosSalvos));
                 renderizarPagina();
+                mostrarMensagem('Sua avaliação da academia foi publicada com sucesso.', 'sucesso');
             });
         }
     }

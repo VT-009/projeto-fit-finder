@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 
     <!-- Font Awesome (Menu e Ícones Gerais) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -48,7 +48,7 @@
                     Ainda não tem conta? <strong>Cadastre-se gratuitamente</strong> para publicar avaliações e acessar treinos e metas personalizadas!
                 </p>
             </div>
-            <a href="cadastro.html" class="btn-primary" style="background: #0284c7; color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-block; white-space: nowrap;">
+            <a href="cadastro.html" class="btn-primary" style="background: #2563eb; color: #fff; padding: 8px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-block; white-space: nowrap;">
                 Criar Conta
             </a>
         </div>
@@ -510,20 +510,22 @@
                             Sua Nota para o Site:
                         </label>
                         <div id="estrelas-site" style="display: flex; gap: 6px; cursor: pointer;">
-                            <span class="star-btn google-star" data-value="1" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                            <span class="star-btn google-star" data-value="2" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                            <span class="star-btn google-star" data-value="3" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                            <span class="star-btn google-star" data-value="4" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
-                            <span class="star-btn google-star" data-value="5" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 1 de 5 estrelas" data-value="1" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 2 de 5 estrelas" data-value="2" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 3 de 5 estrelas" data-value="3" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 4 de 5 estrelas" data-value="4" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
+                            <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 5 de 5 estrelas" data-value="5" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
                         </div>
+                        <p id="nota-site-valor" aria-live="polite">Nota selecionada: 5 de 5 estrelas.</p>
                     </div>
 
                     <div>
+                        <label for="texto-feedback-site">Seu comentario sobre o FitFinder:</label>
                         <textarea id="texto-feedback-site" rows="3" placeholder="O site foi útil? A busca funcionou bem? Deixe sua sugestão ou opinião..." style="width: 100%; padding: 12px; background: #05080e; border: 1px solid #1f293d; color: #fff; border-radius: 6px; resize: vertical;" required></textarea>
                     </div>
 
                     <div>
-                        <button type="submit" style="padding: 10px 24px; font-size: 0.9rem; font-weight: 600; background: #0284c7; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+                        <button type="submit" style="padding: 10px 24px; font-size: 0.9rem; font-weight: 600; background: #2563eb; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
                             Publicar Opinião sobre o FitFinder
                         </button>
                     </div>
@@ -539,6 +541,7 @@
         <p>&copy; 2026 FitFinder - Encontre. Treine. Evolua.</p>
     </footer>
 
+    <script src="js/feedback.js"></script>
     <script src="js/main.js"></script>
     <script src="js/user-menu.js"></script>
 

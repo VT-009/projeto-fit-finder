@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Se não houver ninguém logado, redireciona para o login
     if (!usuarioLogado) {
-        alert('Você precisa estar logado para acessar seus treinos.');
-        window.location.href = 'login.html';
+        mostrarMensagem('Você precisa estar logado para acessar seus treinos.');
+        setTimeout(() => { window.location.href = 'login.html'; }, 900);
         return;
     }
 
@@ -69,13 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         type="button" 
                         onclick="prepararEdicao(${indexReal})" 
                         style="min-height: auto; padding: 8px 14px; background: var(--borda-clara); border-color: var(--borda-clara); font-size: 0.85rem;">
-                        ✏️ Editar
+                         Editar
                     </button>
                     <button 
                         type="button" 
                         onclick="removerTreino(${indexReal})" 
                         style="min-height: auto; padding: 8px 14px; background: #cc0000; border-color: #cc0000; font-size: 0.85rem;">
-                        🗑️ Excluir
+                         Excluir
                     </button>
                 </div>
             `;
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .map(cb => cb.value);
 
         if (categoriasSelecionadas.length === 0) {
-            alert('Por favor, selecione pelo menos um grupo muscular!');
+            mostrarMensagem('Por favor, selecione pelo menos um grupo muscular!');
             return;
         }
 
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 series: inputSeries.value.trim(),
                 categorias: categoriasSelecionadas
             };
-            alert('Exercício atualizado com sucesso!');
+            mostrarMensagem('Exercício atualizado com sucesso!', 'sucesso');
         } else {
             // Criar novo
             const novoTreino = {
@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 categorias: categoriasSelecionadas
             };
             treinos.push(novoTreino);
+            mostrarMensagem('Exercício salvo com sucesso e incluído na sua lista.', 'sucesso');
         }
 
         limparFormulario();

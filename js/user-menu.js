@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </a>
             </li>
             <li class="user-menu-item">
-                <span class="user-name">
+                <button type="button" class="user-name" aria-expanded="false" aria-haspopup="true">
                     <i class="fa-solid fa-user-gear" style="margin-right: 8px;"></i> ${usuarioLogado.nome.split(' ')[0]}
-                </span>
-                <div class="user-dropdown">
+                </button>
+                <div class="user-dropdown" aria-label="Menu do usuário">
                     <div class="user-dropdown-content">
                         <a href="perfil.html">
                             <i class="fa-solid fa-id-card" style="width: 20px; color: var(--azul, #38bdf8);"></i> Meu Perfil
@@ -43,10 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>
         `;
 
+        const botaoMenu = navUl.querySelector('.user-name');
+        botaoMenu.addEventListener('click', () => {
+            const aberto = botaoMenu.getAttribute('aria-expanded') === 'true';
+            botaoMenu.setAttribute('aria-expanded', String(!aberto));
+            navUl.querySelector('.user-dropdown').classList.toggle('menu-aberto', !aberto);
+        });
         document.getElementById('btn-logout').addEventListener('click', () => {
             localStorage.removeItem('fitfinder_usuario_logado');
-            alert('Você saiu da sua conta com sucesso.');
-            window.location.href = 'index.html';
+            mostrarMensagem('Você saiu da sua conta com sucesso.');
+            setTimeout(() => { window.location.href = 'index.html'; }, 1200);
         });
 
     }

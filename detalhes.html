@@ -11,7 +11,7 @@
 
     <link
         rel="stylesheet"
-        href="css/style.css">
+        href="CSS/style.css">
 
     <!-- Font Awesome (Menu e Ícones Gerais) -->
     <link
@@ -75,7 +75,9 @@
 
         <section
             id="secao-detalhes"
-            class="academia-detalhes">
+            class="academia-detalhes"
+            aria-live="polite"
+            aria-busy="true">
 
             <!-- Estado de Carregamento -->
             <div style="text-align: center; padding: 40px; color: var(--texto-secundario);">
@@ -98,6 +100,7 @@
 
 
     <!-- SCRIPTS (Apontando para dados-academias.js no plural) -->
+    <script src="js/feedback.js"></script>
     <script src="js/dados-academias.js"></script>
 
     <script src="js/detalhes.js"></script>
