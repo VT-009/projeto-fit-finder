@@ -6,7 +6,7 @@
 |---|---|
 | Versão do documento | 3.0 — entrega da 3ª Avaliação (IHC/UX) |
 | Data | 26/11/2026 |
-| Autor | Alan Victor |
+| Autor | Alan Victor,João Gabriel, Cauê Alvim e Carlos Eduardo |
 | Base de análise | Repositório `fitfinder` (10 páginas HTML, 1 CSS, 11 scripts JS, 33 imagens, histórico Git com 9 commits) |
 | Local de entrega | `/docs/PRD.md` · Skills de IA em `/.agents/skills.md` |
 
