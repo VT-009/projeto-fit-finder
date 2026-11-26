@@ -1805,3 +1805,77 @@ main section:nth-of-type(3) > div { grid-template-columns: repeat(auto-fit, minm
     .academias-grid, .cards-grid, .grid-academias,
     .info-grid, .fotos-grid { gap: 1.5rem !important; }
 }
+
+/* Aviso de acesso: texto em uma linha de conteúdo e ações logo abaixo. */
+.feedback-global.feedback-com-acoes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+.feedback-mensagem {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    width: 100%;
+    min-width: 0;
+}
+.feedback-mensagem span {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+.feedback-com-acoes .feedback-acoes {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .75rem;
+    width: 100%;
+    margin: 0;
+}
+.feedback-com-acoes .feedback-acoes a { min-width: 44px; min-height: 44px; }
+
+/* Galeria e fichas da academia sempre ocupam uma coluna. */
+#secao-detalhes .fotos-grid,
+#secao-detalhes .info-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    width: 100%;
+    max-width: 100%;
+}
+#secao-detalhes .fotos-grid { gap: 1.75rem !important; }
+#secao-detalhes .fotos-grid figure {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    width: 100%;
+    margin: 0;
+}
+#secao-detalhes .fotos-grid img { display: block; width: 100%; height: auto; aspect-ratio: auto; }
+#secao-detalhes .info-grid { gap: 1.5rem !important; }
+#secao-detalhes .info-grid > .info-card { width: 100%; max-width: 100%; min-width: 0; margin: 0; }
+
+#secao-detalhes .avaliacao-form-card,
+#secao-detalhes .form-comentario-academia,
+#secao-detalhes .form-comentario-academia > div,
+#secao-detalhes .textarea-comentario-academia {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+#secao-detalhes .form-comentario-academia { align-items: stretch; }
+#secao-detalhes .form-comentario-academia > div { flex: 0 0 auto; }
+#secao-detalhes .textarea-comentario-academia {
+    display: block;
+    min-height: 110px;
+    padding: 14px;
+    background: #080808;
+    border: 1px solid var(--borda);
+    color: #fff;
+    border-radius: 6px;
+    resize: vertical;
+}

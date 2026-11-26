@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <section class="avaliacoes-secao" style="margin-top: 30px;">
                 <h3>Avaliações e Experiências dos Alunos</h3>
 
-                <div style="background: #111; padding: 25px; border-radius: 8px; border: 1px solid var(--borda); margin-bottom: 25px;">
+                <div class="avaliacao-form-card" style="background: #111; padding: 25px; border-radius: 8px; border: 1px solid var(--borda); margin-bottom: 25px;">
                     <h4 style="color: var(--azul); margin-bottom: 6px; font-size: 1.1rem;">
                         <i class="fa-solid fa-comment-dots"></i> Já treinou na ${item.nome}? Conte sua experiência!
                     </h4>
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         Compartilhe como foi seu treino para ajudar outros alunos da comunidade.
                     </p>
 
-                    <form id="form-novo-comentario" novalidate style="display: flex; flex-direction: column; gap: 18px;">
+                    <form id="form-novo-comentario" class="form-comentario-academia" novalidate style="display: flex; flex-direction: column; gap: 18px;">
                         <div>
                             <label style="font-size: 0.9rem; color: #ccc; display: block; margin-bottom: 8px; font-weight: 600;">Sua Nota:</label>
                             <div id="estrelas-seletor" style="display: flex; gap: 6px; cursor: pointer;">
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         <div>
                             <label for="texto-comentario">Seu comentário:</label>
-                            <textarea id="texto-comentario" rows="5" placeholder="Escreva aqui detalhadamente sobre a estrutura, equipamentos, atendimento..." style="width: 100%; padding: 14px; background: #080808; border: 1px solid var(--borda); color: #fff; border-radius: 6px; resize: vertical;" required></textarea>
+                            <textarea id="texto-comentario" class="textarea-comentario-academia" rows="5" placeholder="Escreva aqui detalhadamente sobre a estrutura, equipamentos, atendimento..." required></textarea>
                         </div>
 
                         <div>

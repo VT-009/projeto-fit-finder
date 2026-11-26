@@ -18,12 +18,15 @@
         regiao.className = `feedback-global ${sucesso ? 'estado-sucesso' : 'estado-erro'}`;
         regiao.setAttribute('role', sucesso ? 'status' : 'alert');
         regiao.setAttribute('aria-live', sucesso ? 'polite' : 'assertive');
+        const linhaMensagem = document.createElement('div');
+        linhaMensagem.className = 'feedback-mensagem';
         const icone = document.createElement('i');
         icone.className = sucesso ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-exclamation';
         icone.setAttribute('aria-hidden', 'true');
         const conteudo = document.createElement('span');
         conteudo.textContent = `${sucesso ? 'Sucesso: ' : 'Atenção: '}${texto}`;
-        regiao.replaceChildren(icone, conteudo);
+        linhaMensagem.append(icone, conteudo);
+        regiao.replaceChildren(linhaMensagem);
         regiao.focus();
     };
 
@@ -31,6 +34,8 @@
         const texto = 'Faça o cadastro ou entre na sua conta para ter todas as ferramentas disponíveis.';
         window.mostrarMensagem(texto);
         const regiao = document.getElementById('feedback-global');
+        regiao.classList.add('feedback-com-acoes');
+        regiao.querySelector('.feedback-mensagem span').textContent = texto;
         const acoes = document.createElement('div');
         acoes.className = 'feedback-acoes';
         acoes.innerHTML = '<a class="btn-primary" href="login.html">Entrar</a><a class="btn-secondary" href="cadastro.html">Criar Conta</a>';
