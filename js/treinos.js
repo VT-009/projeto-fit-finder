@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Se não houver ninguém logado, redireciona para o login
     if (!usuarioLogado) {
-        mostrarMensagem('Você precisa estar logado para acessar seus treinos.');
-        setTimeout(() => { window.location.href = 'login.html'; }, 900);
+        mostrarAcessoRestrito();
         return;
     }
 

@@ -1760,3 +1760,20 @@ button.btn-secondary, button[type="button"].btn-secondary {
 .btn-primary:hover, button:hover { background-color: #1d4ed8; border-color: #1d4ed8; color: #fff; }
 button:hover, .btn-primary:hover { background-color: #1d4ed8 !important; border-color: #1d4ed8 !important; color: #fff !important; }
 article h4, .login-container h1, .login-container > h2 i, #valor-tmb { color: var(--azul-texto); }
+
+
+/* Navegacao visivel, cards arejados e feedback compacto */
+.nav-principal { flex-wrap: wrap; gap: 8px; }
+.nav-principal a, .nav-principal .user-name { padding: 10px 12px; }
+.user-menu-item { position: relative; }
+.user-dropdown { right: 0; }
+.feedback-acoes { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.5rem; }
+.feedback-global { flex-wrap:wrap; }
+main:has(.form-login) #feedback-global { max-width:480px; margin:0 auto 1rem; }
+.form-login > div:has(> a.link-esqueci) { margin:0 !important; }
+main > section:nth-child(3) > div { gap:1.75rem; }
+@media (max-width:600px) { .nav-principal { flex-direction:row; align-items:stretch; } .nav-principal li { flex:1 1 auto; } .nav-principal a { width:100%; } main > section:nth-child(3) > div { gap:1.25rem; } }
+
+.star-btn { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; color: #667085; }
+main > section:nth-child(3) > div { gap: 1.75rem !important; }
+@media (max-width: 600px) { main > section:nth-child(3) > div { gap: 1.25rem !important; } }

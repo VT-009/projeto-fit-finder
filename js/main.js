@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // FORÇA O LAYOUT DE GRELHA EM BLOCOS LADO A LADO NO CONTAINER PAI
         containerAcademias.style.display = 'grid';
         containerAcademias.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
-        containerAcademias.style.gap = '20px';
+        containerAcademias.style.gap = window.matchMedia('(max-width: 600px)').matches ? '20px' : '28px';
     }
 
     if (selectBairro && containerAcademias) {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const listaFeedbacksContainer = document.getElementById('lista-feedbacks-site');
     const keyFeedbackPlataforma = 'fitfinder_feedback_site_geral';
 
-    let notaSite = 5;
+    let notaSite = 0;
 
     function renderizarFeedbacksSite() {
         if (!listaFeedbacksContainer) return;
@@ -164,11 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const v = parseInt(s.getAttribute('data-value'));
             s.style.color = v <= val ? '#e3a008' : '#444';
             s.style.opacity = v <= val ? '1' : '0.5';
+            s.style.fontVariationSettings = `'FILL' ${v <= val ? 1 : 0}, 'wght' 400, 'GRAD' 0, 'opsz' 24`;
             s.style.transform = v <= val ? 'scale(1.1)' : 'scale(1)';
             s.setAttribute('aria-pressed', String(v === val));
         });
         const textoNota = document.getElementById('nota-site-valor');
-        if (textoNota) textoNota.textContent = `Nota selecionada: ${val} de 5 estrelas.`;
+        if (textoNota) textoNota.textContent = val ? `Nota selecionada: ${val} de 5 estrelas.` : 'Nenhuma nota selecionada. Escolha de 1 a 5 estrelas.';
     }
 
     if (estrelasSite.length > 0) {
@@ -210,6 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const texto = campoTextoSite ? campoTextoSite.value.trim() : '';
+            if (notaSite === 0) {
+                mostrarMensagem('Selecione de 1 a 5 estrelas para enviar sua avaliação.');
+                document.getElementById('estrelas-site')?.querySelector('.star-btn')?.focus();
+                return;
+            }
             if (!texto) return;
 
             const feedbacks = JSON.parse(localStorage.getItem(keyFeedbackPlataforma)) || [];
@@ -222,6 +228,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             localStorage.setItem(keyFeedbackPlataforma, JSON.stringify(feedbacks));
             if (campoTextoSite) campoTextoSite.value = '';
+            notaSite = 0;
+            atualizarEstrelasSite(0);
 
             renderizarFeedbacksSite();
             mostrarMensagem('Sua avaliação do FitFinder foi publicada com sucesso.', 'sucesso');

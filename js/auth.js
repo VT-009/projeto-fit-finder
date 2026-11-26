@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const senha = document.getElementById('senha').value;
                 const confirmarSenha = inputConfirmarSenha.value;
 
+                if (!nome) { mostrarMensagem('Digite seu nome completo para criar a conta.'); document.getElementById('nome').focus(); return; }
+                if (!/^[A-Z0-9._%+-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i.test(email)) { mostrarMensagem("Digite um endereço de e-mail válido contendo '@' (exemplo: nome@email.com)."); document.getElementById('email').focus(); return; }
+                if (senha.length < 8) { mostrarMensagem('A senha precisa ter pelo menos 8 caracteres.'); document.getElementById('senha').focus(); return; }
+
                 if (senha !== confirmarSenha) {
                     mostrarMensagem('As senhas não coincidem. Por favor, tente novamente.');
                     return;
@@ -53,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
             const senha = senhaInput ? senhaInput.value : '';
 
+            if (!email || !senha) { mostrarMensagem('Preencha o e-mail e a senha para entrar.'); (emailInput?.value ? senhaInput : emailInput)?.focus(); return; }
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?(?:\.[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?)+$/i.test(email)) { mostrarMensagem("Digite um endereço de e-mail válido contendo '@' (exemplo: nome@email.com)."); emailInput?.focus(); return; }
+
             const usuarios = JSON.parse(localStorage.getItem('fitfinder_usuarios')) || [];
             const usuarioValido = usuarios.find(u => u.email === email && u.senha === senha);
 
@@ -61,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mostrarMensagem(`Bem-vindo(a), ${usuarioValido.nome}!`);
                 setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             } else {
-                mostrarMensagem('E-mail ou senha incorretos. Verifique seus dados!');
+                mostrarMensagem('E-mail ou senha incorretos. Confira os dados e tente novamente.');
             }
         });
     }

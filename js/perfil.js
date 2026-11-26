@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioLogado = JSON.parse(localStorage.getItem('fitfinder_usuario_logado'));
 
     if (!usuarioLogado) {
-        mostrarMensagem('Para acessar recursos completos, faça login.');
-        setTimeout(() => { window.location.href = 'login.html'; }, 900);
+        mostrarAcessoRestrito();
         return;
     }
 
@@ -83,6 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!senhaAtualDigitada || !novaSenhaDigitada) {
                 mostrarMensagem('Por favor, preencha a senha atual e a nova senha.');
+                return;
+            }
+
+            if (novaSenhaDigitada.length < 8) {
+                mostrarMensagem('A nova senha precisa ter pelo menos 8 caracteres.');
+                inputSenhaNova.focus();
                 return;
             }
 

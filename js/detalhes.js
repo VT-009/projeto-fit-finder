@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.title = `FitFinder - ${item.nome}`;
 
-    let notaAcademia = 5;
+    let notaAcademia = 0;
 
     function renderizarPagina() {
 
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         Compartilhe como foi seu treino para ajudar outros alunos da comunidade.
                     </p>
 
-                    <form id="form-novo-comentario" style="display: flex; flex-direction: column; gap: 18px;">
+                    <form id="form-novo-comentario" novalidate style="display: flex; flex-direction: column; gap: 18px;">
                         <div>
                             <label style="font-size: 0.9rem; color: #ccc; display: block; margin-bottom: 8px; font-weight: 600;">Sua Nota:</label>
                             <div id="estrelas-seletor" style="display: flex; gap: 6px; cursor: pointer;">
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 4 de 5 estrelas" data-value="4" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
                                 <span class="star-btn google-star" role="button" tabindex="0" aria-label="Avaliar com 5 de 5 estrelas" data-value="5" style="font-size: 1.8rem; transition: transform 0.15s ease, color 0.15s ease;">star</span>
                             </div>
-                            <p id="nota-academia-valor" aria-live="polite">Nota selecionada: 5 de 5 estrelas.</p>
+                            <p id="nota-academia-valor" aria-live="polite">Nenhuma nota selecionada. Escolha de 1 a 5 estrelas.</p>
                         </div>
 
                         <div>
@@ -193,11 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const v = parseInt(s.getAttribute('data-value'));
                 s.style.color = v <= val ? '#e3a008' : '#444';
                 s.style.opacity = v <= val ? '1' : '0.5';
+                s.style.fontVariationSettings = `'FILL' ${v <= val ? 1 : 0}, 'wght' 400, 'GRAD' 0, 'opsz' 24`;
                 s.style.transform = v <= val ? 'scale(1.1)' : 'scale(1)';
                 s.setAttribute('aria-pressed', String(v === val));
             });
             const textoNota = document.getElementById('nota-academia-valor');
-            if (textoNota) textoNota.textContent = `Nota selecionada: ${val} de 5 estrelas.`;
+            if (textoNota) textoNota.textContent = val ? `Nota selecionada: ${val} de 5 estrelas.` : 'Nenhuma nota selecionada. Escolha de 1 a 5 estrelas.';
         }
 
         atualizarEstrelas(notaAcademia);
@@ -255,7 +256,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 const textoDigitado = document.getElementById('texto-comentario').value.trim();
-                if (!textoDigitado) return;
+                if (notaAcademia === 0) {
+                    mostrarMensagem('Selecione de 1 a 5 estrelas para publicar sua avaliação.');
+                    container.querySelector('#estrelas-seletor .star-btn')?.focus();
+                    return;
+                }
+                if (!textoDigitado) {
+                    mostrarMensagem('Escreva um comentário antes de publicar sua avaliação.');
+                    document.getElementById('texto-comentario').focus();
+                    return;
+                }
 
                 comentariosSalvos.unshift({
                     autor: usuarioLogado.nome,
@@ -264,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 localStorage.setItem(keyComentariosAcademia, JSON.stringify(comentariosSalvos));
+                notaAcademia = 0;
                 renderizarPagina();
                 mostrarMensagem('Sua avaliação da academia foi publicada com sucesso.', 'sucesso');
             });

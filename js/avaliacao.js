@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usuarioLogado = JSON.parse(localStorage.getItem('fitfinder_usuario_logado'));
 
     if (!usuarioLogado) {
-        mostrarMensagem('Para acessar recursos completos, faça login.');
-        setTimeout(() => { window.location.href = 'login.html'; }, 900);
+        mostrarAcessoRestrito();
         return;
     }
 
