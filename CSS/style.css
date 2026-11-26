@@ -1730,7 +1730,7 @@ button.btn-secondary, button[type="button"].btn-secondary {
     margin: 0 0 1rem; font-weight: 600;
 }
 .estado-erro { color: var(--erro); border-color: #b91c1c; background: #251116; }
-.estado-sucesso { color: var(--sucesso); border-color: #15803d; background: #102018; }
+.estado-sucesso, .estado-success { color: #bbf7d0; border-color: #22c55e; background: #052e16; }
 .star-btn {
     display: inline-flex; align-items: center; justify-content: center;
     min-width: 44px; min-height: 44px; cursor: pointer;

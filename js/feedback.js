@@ -2,7 +2,7 @@
 (function () {
     window.mostrarMensagem = function (mensagem, tipo) {
         const texto = String(mensagem || '');
-        const sucesso = tipo === 'sucesso' || /sucesso|atualizado|cadastrado/i.test(texto);
+        const sucesso = tipo === 'success' || tipo === 'sucesso' || /sucesso|atualizado|cadastrado/i.test(texto);
         let regiao = document.getElementById('feedback-global');
         if (!regiao) {
             regiao = document.createElement('div');

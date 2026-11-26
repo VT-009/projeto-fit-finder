@@ -38,11 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                usuarios.push({ nome, email, senha });
+                const novoUsuario = { nome, email, senha };
+                usuarios.push(novoUsuario);
                 localStorage.setItem('fitfinder_usuarios', JSON.stringify(usuarios));
+                localStorage.setItem('fitfinder_usuario_logado', JSON.stringify(novoUsuario));
 
-                mostrarMensagem('Cadastro realizado com sucesso! Redirecionando para a página de login...');
-                setTimeout(() => { window.location.href = 'login.html'; }, 1200);
+                mostrarMensagem('Conta criada com sucesso! Redirecionando para o início...', 'success');
+                setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             });
         }
     } 
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (usuarioValido) {
                 localStorage.setItem('fitfinder_usuario_logado', JSON.stringify(usuarioValido));
-                mostrarMensagem(`Bem-vindo(a), ${usuarioValido.nome}!`);
+                mostrarMensagem(`Bem-vindo(a), ${usuarioValido.nome}!`, 'success');
                 setTimeout(() => { window.location.href = 'index.html'; }, 1200);
             } else {
                 mostrarMensagem('E-mail ou senha incorretos. Confira os dados e tente novamente.');
