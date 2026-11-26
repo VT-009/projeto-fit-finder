@@ -39,8 +39,8 @@ window.dadosAcademias = {
         nome: 'Foco Fitness',
         nota: '4.7',
         bairro: 'Antares',
-        foto1: 'imagens/FOCO antares entrada.jpg',
-        foto2: 'imagens/FOCO antares interior.jpg',
+        foto1: 'imagens/FOCO Antares Entrada.jpg',
+        foto2: 'imagens/FOCO Antares interior.jpg',
         preco: 'A partir de R$ 89,00/mês',
         planos: [
             '<strong>Plano Mensal Inicial:</strong> R$ 89,00/mês',
@@ -251,7 +251,7 @@ window.dadosAcademias = {
         nota: '4.7',
         bairro: 'Benedito Bentes',
         foto1: 'imagens/BG benedito bentes Entrada.jpg',
-        foto2: 'imagens/BG benedito bentes Interior.jpg',
+        foto2: 'imagens/BG Benedito bentes Interior.jpg',
         preco: 'A partir de R$ 79,90/mês',
         planos: [
             '<strong>Plano Mensal Inicial:</strong> R$ 79,90/mês',
