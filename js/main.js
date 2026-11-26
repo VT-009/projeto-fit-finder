@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // FORÇA O LAYOUT DE GRELHA EM BLOCOS LADO A LADO NO CONTAINER PAI
         containerAcademias.style.display = 'grid';
         containerAcademias.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
-        containerAcademias.style.gap = window.matchMedia('(max-width: 600px)').matches ? '20px' : '28px';
+        containerAcademias.style.gap = window.matchMedia('(max-width: 600px)').matches ? '24px' : '32px';
     }
 
     if (selectBairro && containerAcademias) {

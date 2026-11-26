@@ -1259,7 +1259,7 @@ footer p {
     }
 
 }
-.user-menu-item:focus-within .user-dropdown, .user-dropdown.menu-aberto { display: block; }
+.user-dropdown.menu-aberto { display: block; }
 .user-name { background: var(--fundo-card); color: var(--texto); border: 1px solid var(--borda); }
 main .register-area a, main .voltar-area a, main a.btn-secondary, main a.link-esqueci {
     display: inline-flex;
@@ -1384,11 +1384,6 @@ main a.link-esqueci:focus-visible {
     padding: 8px 0;
     display: flex;
     flex-direction: column;
-}
-
-/* Mantém o menu aberto enquanto o mouse estiver no botão OU no menu */
-.user-menu-item:hover .user-dropdown {
-    display: block;
 }
 
 .user-dropdown a,
@@ -1762,18 +1757,51 @@ button:hover, .btn-primary:hover { background-color: #1d4ed8 !important; border-
 article h4, .login-container h1, .login-container > h2 i, #valor-tmb { color: var(--azul-texto); }
 
 
-/* Navegacao visivel, cards arejados e feedback compacto */
-.nav-principal { flex-wrap: wrap; gap: 8px; }
-.nav-principal a, .nav-principal .user-name { padding: 10px 12px; }
-.user-menu-item { position: relative; }
-.user-dropdown { right: 0; }
-.feedback-acoes { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.5rem; }
-.feedback-global { flex-wrap:wrap; }
-main:has(.form-login) #feedback-global { max-width:480px; margin:0 auto 1rem; }
+/* Dropdown principal único, com estado controlado por clique e teclado. */
+.nav-principal { justify-content: flex-end; }
+.user-menu-item { position: relative; display: inline-block; }
+.menu-trigger {
+    display: inline-flex; align-items: center; justify-content: center; gap: .65rem;
+    min-width: 112px; min-height: 44px; padding: .6rem 1rem;
+    color: #fff; background: var(--azul); border: 2px solid #60a5fa;
+    border-radius: 8px; font-weight: 700; cursor: pointer;
+}
+.menu-trigger:hover { background: #1d4ed8; }
+.menu-seta { font-size: .8em; }
+.user-dropdown { right: 0; min-width: 230px; padding-top: 4px; }
+.user-dropdown-content hr { width: 100%; margin: .45rem 0; border: 0; border-top: 1px solid var(--borda-clara); }
+.user-dropdown .btn-logout { min-height: 44px; }
+.feedback-global {
+    height: auto; min-height: 0; flex: 0 0 auto; align-content: flex-start;
+    margin: .5rem 0; padding: .75rem 1rem;
+}
+.feedback-acoes { display:flex; flex: 0 0 100%; flex-wrap:wrap; gap:.75rem; margin-top:.5rem; }
+main:has(.form-login) #feedback-global { max-width:480px; margin:.5rem auto; }
+.login-container, main section#cadastro, .avaliacoes-secao > div:has(> form) {
+    height: auto; min-height: 0; flex: 0 0 auto; align-self: flex-start;
+}
+form {
+    height: auto; min-height: 0; flex: 0 0 auto;
+    align-content: flex-start; justify-content: flex-start;
+}
 .form-login > div:has(> a.link-esqueci) { margin:0 !important; }
-main > section:nth-child(3) > div { gap:1.75rem; }
-@media (max-width:600px) { .nav-principal { flex-direction:row; align-items:stretch; } .nav-principal li { flex:1 1 auto; } .nav-principal a { width:100%; } main > section:nth-child(3) > div { gap:1.25rem; } }
 
+/* Espaçamento consistente nos cards e grids do projeto. */
+main section:nth-of-type(3) > div,
+.academias-grid, .cards-grid, .grid-academias,
+.info-grid, .fotos-grid {
+    display: grid;
+    gap: 2rem !important;
+}
+main section:nth-of-type(3) > div { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.info-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.fotos-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.cards-grid, .academias-grid, .grid-academias { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
 .star-btn { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; color: #667085; }
-main > section:nth-child(3) > div { gap: 1.75rem !important; }
-@media (max-width: 600px) { main > section:nth-child(3) > div { gap: 1.25rem !important; } }
+@media (max-width: 600px) {
+    .nav-principal { flex-direction: row; align-items: center; }
+    .user-dropdown { min-width: min(230px, calc(100vw - 2rem)); }
+    main section:nth-of-type(3) > div,
+    .academias-grid, .cards-grid, .grid-academias,
+    .info-grid, .fotos-grid { gap: 1.5rem !important; }
+}
